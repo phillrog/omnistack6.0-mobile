@@ -24,6 +24,10 @@ import pt from 'date-fns/locale/pt';
 
 import ImagePicker from 'react-native-image-picker';
 
+import RNFS from 'react-native-fs';
+
+import FileViewer from 'react-native-file-viewer';
+
 class Box extends Component {
     async componentDidMount() {
         const box = await AsyncStorage.getItem('@RocketBox:box');
@@ -33,9 +37,24 @@ class Box extends Component {
         this.props.dispatch(actionCurrentBox.currentBox(response.data));
     }
 
+    openFile = async (file) => {
+        try {
+            const filePath = `${RNFS.DocumentDirectoryPath}/${file.title}`;
+
+            await RNFS.downloadFile({
+                fromUrl: file.url,
+                toFile: filePath
+            });
+
+            await FileViewer.open(filePath);
+        } catch (error){
+            console.error(error);            
+        }
+    }
+
     renderItem = ({item}) => (
         <TouchableOpacity
-            onPress={() => {}}
+            onPress={() => this.openFile(item)} 
             style={styles.file}
             >
             <View style={styles.fileInfo}>
