@@ -51,7 +51,7 @@ class Main extends Component {
                 style={styles.button}
                 
             >
-                <Text style={styles.buttonText}>{this.props.newBox}</Text>
+                <Text style={styles.buttonText}>Criar</Text>
             </TouchableOpacity>
         </View>
         );

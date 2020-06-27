@@ -1,4 +1,4 @@
-const initialState = { newBox: 'TESTE', box: {} };
+const initialState = { newBox: '', box: {} };
 
 export default (state = initialState, action) => {
     switch (action.type) {
