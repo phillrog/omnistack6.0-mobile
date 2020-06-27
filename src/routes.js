@@ -16,7 +16,7 @@ import Box from './pages/Box';
 
 function Routes() {
     return (
-      <NavigationContainer options={{backgroundColor: "green"}}>
+      <NavigationContainer>
         <Stack.Navigator initialRouteName='Main'
           screenOptions={{
             gestureEnabled: false,
@@ -28,8 +28,8 @@ function Routes() {
             name='Main' 
             component={Main} 
             options={{
-              headerStyle: ({ backgroundColor: "#fff"}),
-              headerTintColor: "#008abe",
+              headerStyle: ({ backgroundColor: "#efefef"}),
+              headerTintColor: "#7159c1",
               
             }}
           />
@@ -46,26 +46,5 @@ function Routes() {
     </NavigationContainer>
   )
 }
-
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    height: "100%",
-    flexDirection: "row",
-    alignItems: "center",
-  },
-  headerTitle: {
-    fontSize: 24,
-    color: "#FFF",
-    letterSpacing: 1,
-  },
-  icon: {
-    marginLeft: 10
-  },
-  headerColor: {
-      color: "#008abe"
-  }
-});
 
  export default Routes;
