@@ -24,7 +24,7 @@ class Main extends Component {
             title: this.props.newBox
         });
 
-        this.props.history.push(`/box/${response.data._id}`);
+        this.props.navigation.navigate("Box");
     }
 
     handleInputChange = ( e) => {
@@ -42,16 +42,16 @@ class Main extends Component {
                 autoCapitalize="none"
                 autoCorrect={false}
                 underlineColorAndroid="transparent"
-                returnKeyType="send"
-                
+                value={this.props.newBox}
+                onChangeText={this.handleInputChange}
                 />
 
             <TouchableOpacity
-                onPress={()=>{}} 
+                onPress={this.handleSignIn} 
                 style={styles.button}
                 
             >
-                <Text style={styles.buttonText}>Criar</Text>
+                <Text style={styles.buttonText}>{this.props.newBox}</Text>
             </TouchableOpacity>
         </View>
         );
