@@ -11,3 +11,15 @@ Curso Omni Stack 6.0 da Rocketseat - Mobile
 - Módulo react-native-image-picker, componente para capturar ou carregar imagens;
 - Módulo react-native-file-viewer, componente visualizar de forma nativa qualquer arquivo;
 - Módulo socket.io·client para comunicação em tempo real;
+
+
+# PORTAL
+[![CircleCI](https://circleci.com/gh/phillrog/omnistack-6.0-frontend.svg)](https://circleci.com/gh/phillrog/omnistack-6.0-frontend)
+
+
+[https://github.com/phillrog/omnistack-6.0-frontend](https://github.com/phillrog/omnistack-6.0-frontend)
+
+# API
+[![CircleCI](https://circleci.com/gh/phillrog/omnistack-6-backend.svg?style=svg)](https://circleci.com/gh/phillrog/omnistack-6-backend)
+
+[https://github.com/phillrog/omnistack-6-backend](https://github.com/phillrog/omnistack-6-backend)

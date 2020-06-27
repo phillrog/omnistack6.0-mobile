@@ -52,11 +52,35 @@ class Box extends Component {
     )
 
     trunc(text) {
-        return text.length > 20 ? `${text.substr(0, 20)}...` : text;
+        return text.length > 10 ? `${text.substr(0, 10)}...` : text;
     }
 
-    handleUpload(){
-        ImagePicker
+    handleUpload = () => {
+        ImagePicker.launchImageLibrary({}, async upload => {
+            if (upload.error) {
+                console.loog("ImagePicker error");
+            } else if (upload.didCancel) {
+                console.loog("Canceled by user");
+            } else {
+                const data = new FormData();
+                const [prefix, suffix] = upload.fileName.split('.');
+                const ext = suffix.toLowerCase() ==='heic' ? 'jpg' : suffix;
+
+                data.append('file', {
+                    uri: upload.uri,
+                    type: upload.type,
+                    name: `${prefix}.${ext}`
+                });
+                
+                await api.post(`/boxes/${this.props.box._id}/files`, data).then(response => {
+
+                    console.log(response);
+                })
+                .then(error => console.log(error));                                
+            }
+            
+        });
+     
     }
     
 
