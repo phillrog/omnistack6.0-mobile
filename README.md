@@ -12,7 +12,8 @@ Curso Omni Stack 6.0 da Rocketseat - Mobile
 - Módulo react-native-file-viewer, componente visualizar de forma nativa qualquer arquivo;
 - Módulo socket.io·client para comunicação em tempo real;
 
-
+# COMO RODAR
+- Execute ```yarn install``` depois ```react-native run-android```
 # PORTAL
 [![CircleCI](https://circleci.com/gh/phillrog/omnistack-6.0-frontend.svg)](https://circleci.com/gh/phillrog/omnistack-6.0-frontend)
 
@@ -23,3 +24,10 @@ Curso Omni Stack 6.0 da Rocketseat - Mobile
 [![CircleCI](https://circleci.com/gh/phillrog/omnistack-6-backend.svg?style=svg)](https://circleci.com/gh/phillrog/omnistack-6-backend)
 
 [https://github.com/phillrog/omnistack-6-backend](https://github.com/phillrog/omnistack-6-backend)
+
+
+# RESULTADO
+
+- ![inicio](https://image.prntscr.com/image/NNDj-GE5S1C68GiqHkZOMQ.png)
+
+- ![imagens](https://image.prntscr.com/image/l1edmfqQTHemFORPuyb1Yg.png)
