@@ -28,13 +28,30 @@ import RNFS from 'react-native-fs';
 
 import FileViewer from 'react-native-file-viewer';
 
+import socket from 'socket.io-client';
+
 class Box extends Component {
     async componentDidMount() {
         const box = await AsyncStorage.getItem('@RocketBox:box');
 
+        this.subscribeToNewFiles(box);
+
         const response = await api.get(`/boxes/${box}`);
 
         this.props.dispatch(actionCurrentBox.currentBox(response.data));
+    }
+
+    subscribeToNewFiles = (box) => {  
+        const io = socket('https://omnistack6-api.herokuapp.com');
+
+        io.emit('connectRoom', box);
+
+        io.on('file', data => {
+            this.props.dispatch(actionCurrentBox.currentBox({
+                ...this.props.box,
+                files: [ data, ...this.props.box.files]
+            })); 
+        });
     }
 
     openFile = async (file) => {
