@@ -5,7 +5,7 @@ import {
     Text,
     Image,
     TextInput,
-    TouchableOpacity
+    TouchableOpacity    
 } from 'react-native';
 
 import styles from './styles';
@@ -18,11 +18,23 @@ import actionBox from '../../actions/actionBox';
 
 import { connect } from 'react-redux';
 
+import AsyncStorage from '@react-native-community/async-storage';
+
 class Main extends Component {
+    async componentDidMount() {
+        const box = await AsyncStorage.getItem('@RocketBox:box');
+
+        if (box) {
+            this.props.navigation.navigate('Box');
+        }
+    }
+
     handleSignIn = async () => {
         const response = await api.post('/boxes',{
             title: this.props.newBox
         });
+
+        await AsyncStorage.setItem('@RocketBox:box', response.data._id);
 
         this.props.navigation.navigate("Box");
     }
