@@ -12,7 +12,25 @@ import styles from './styles';
 
 import logo from '../../assets/logo.png';
 
-export default class Main extends Component {
+import api from '../../services/api';
+
+import actionBox from '../../actions/actionBox';
+
+import { connect } from 'react-redux';
+
+class Main extends Component {
+    handleSignIn = async () => {
+        const response = await api.post('/boxes',{
+            title: this.props.newBox
+        });
+
+        this.props.history.push(`/box/${response.data._id}`);
+    }
+
+    handleInputChange = ( e) => {
+        this.props.dispatch(actionBox.newBox(e))
+    }
+
     render() {
         return (
         <View style={styles.conatiner}>
@@ -24,11 +42,14 @@ export default class Main extends Component {
                 autoCapitalize="none"
                 autoCorrect={false}
                 underlineColorAndroid="transparent"
+                returnKeyType="send"
+                
                 />
 
             <TouchableOpacity
                 onPress={()=>{}} 
                 style={styles.button}
+                
             >
                 <Text style={styles.buttonText}>Criar</Text>
             </TouchableOpacity>
@@ -36,3 +57,5 @@ export default class Main extends Component {
         );
     }
 }
+
+export default connect(store => ({ newBox: store.newBox }))(Main);
